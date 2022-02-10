@@ -1,0 +1,42 @@
+---
+title: "Demografía"
+author: "Ricardo"
+date: "9/2/2022"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## La Demografía
+
+
+La demografía es un poco compleja de definir pues el traducir la palabra compuesta de la etimología griega no nos lleva a mucho, es algo más complejo que eso. La demografía en un sentido más extenso estudia procesos que determinan la formación, conservación y desaparición de las poblaciones, los procesos a los que se refiere lo anterior es la fecundidad, mortalidad y movilidad.
+
+Una de las finalidades de la demografía es identificar y comprender el porqué del crecimiento y declive de algunos casos.
+A este punto la demografía no parece ser tan compleja como en un principio se mencionaba, sin embargo, es muy extensa, las poblaciones no solamente se caracterizan por su grado de expansión, también por su estructura (composición por edad, sexo, estado civil entre otros)
+
+Cada elemento de la composición es de suma importancia ya que gracias a cada uno podremos entender con mayor facilidad los distintos fenómenos a estudiar, por ejemplo, la estructura por edad es de gran interés pues los fenómenos de fecundidad y mortalidad dependen en gran medida de esta variable
+La distribución de las edades es muy importante para el estudio de diversas áreas y mientras que algunas poblaciones pueden soportar el peso de un gran número de ancianos, algunas otras el peso de niños y jóvenes; dependiendo del tipo de población se llegarán a presentar diversas consecuencias demográficas, sociales y económicas.
+
+Los fenómenos o los componentes que determinan el crecimiento de una población también son poderosos factores que pueden determinar la cohesión o repulsión pues las parejas o núcleos familiares se forman debido a la nupcialidad, fecundidad y movilidad, pero se pueden deshacer debido a la disolución de matrimonio, la muerte o la movilidad de signo contrario.
+La cohesión y repulsión no solo depende de lo anterior, también se verán involucrados algunos factores económicos, culturales entre otros, de tal manera los procesos de agregación y cohesión no son los mismos sobre cada individuo.
+
+# La demografía y su métodos
+
+La naturaleza de la demografía condiciona el tipo de análisis y la naturaleza de los métodos aplicables, por lo que el grado de detalle, la cobertura y la significación de los resultados se ven afectados.
+La naturaleza de datos se refiere a la unidada objeto de la recogida de datos, características, elaboración y presentación, mientras que la fiabilidad y los errores se refieren a la correspondencia entre el dato estadístico y la realidad que debe describir
+
+Los censos son de gran ayuda pues nos permiten cuantificar la población de algún país, sin embargo, en el mundo hay paises que no cuentan con algún censo, algunos otros tienen censos muy recientes y otros paises donde los censos tardan hasta 18 años como es el caso de China.
+Los censos no es algo moderno pues se podría indicar que los censos son tan antiguos como la vida en socidad. En la edad media ya existían recuentos de hombres y de bienes, aquellos recuentos tenían finalidades fiscales.
+
+Las organizaciones de censos deben de tener un completo conocimiento del territorio a censar donde el territorio debe de ser subdividido y de tal manera cada división se le confiere a un agente censal. 
+
+# Naturaleza de los datos
+
+Normalmente la unidad de recogida es la familia y de acuerdo a una definición la familia es: "El grpo de personas ( dos o más) que, residiendo en la misma vivienda familiar, comparten algunos gastos en común y están vinculados por lazos de parentesco"
+La definición de hogar es: "El conjunto de personas que, residiendo en la misma vivienda, comparten gastos comunes ocasionados por el uso de la vivienda y/o gastos de alimentación"
+Nosotros podremos identificar dos tipos de hogares, los unipersonales que son aquellos formados por una sola persona y los multipersonales que se encuentran formados por 2 o más personas.
+Un censo moderno tiene el objetivo de dar una imagen precisa de la situación demográfica y social de un país, del mismo modo procurar los elementos para investigaciones posteriores para el estudio de aspectos no tratados por el censo.
+
