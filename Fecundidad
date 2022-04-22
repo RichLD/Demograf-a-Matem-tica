@@ -1,0 +1,81 @@
+###Fecundidad###
+
+En la demografía existen 2 conceptos que es necesario diferenciar 
+Fecundidad se refiere al número de hijos que tienen las mujeres.
+Fertilidad se refiere a la capacidad biológica de la mujer de tener hijos
+
+#Fecundidad#
+Factores que impactan en la fecundidad de las mujeres:
+
+-Ecónomica    -Cultura
+-Edo. Civil   - Familia
+-Fisiológicos - Morbilidad
+-Educación    - Acceso a anticonceptivos 
+-Fecundidad   - Mercado de trabajo
+              -Pol. Pob. México
+              -Ley General de la Población
+              
+###Tasa Bruta de Natalidad###
+
+TBN = Nacimientos / Población
+
+Normalmente esta TBN se utiliza de manera anual y se interpreta en miles de personas.
+#Ejemplo#
+
+Nacimientos= 470,900
+Población  = 27,720,000
+$TBN = \frac {470,900}{27,720,000} = .017$
+
+La TBN también se puede interpretar multiplicandola por 1000, es decir, que en esta población nacen 17 niños por cada 1000 personas
+
+#¿Cuántos hijos puede tener una mujer durante su vida fertilidad?#
+-Suponemos que inicia a los 15 años y termina a los 45 años
+
+
+Tasas especificas de fecundidad 
+Tasas generales de fecundidad 
+
+
+Tasa especifica de fecundidad se define de la sig manera:
+
+$TEF = \frac {Nacimiento}{Pob Femenina}$
+
+Ejemplo:
+Edad   |   Nacidos Vivos  |    Pob femenina   |  Tef (Por mil)
+15-19  |  14687           |    2974000        | 4.938467
+20-24  |  116809          |    3404000        | 34.31522
+25-29  |  307767          |    3688000        | 83.45092
+30-34  |  389795          |    4286000        | 90.9461
+35-39  |  209707          |    4776000        | 43.9085
+40-44  |  31270           |    4243000        | 7.369786
+
+#Tasa General de Fecundidad#
+
+$$TGF=\frac{\sum_{i=15}^{44}nacimientos^{i}}{\sum_{i=15}^{44}Pob^{i}}$$
+
+#Ejemplo TGF
+
+$TGF = \frac {1070035}{23371000} = .04578$
+
+45.78 NACIMIENTOS por cada 1000 mujeres en edad de 15 a 44 años
+
+#Ejercicio: Calcular la tef tgf para México en el año 2010
+
+Pob femenina de 15 a 44 en el periodo de 2010 =5,505,991 
+Nacimientos de 15 a 44 en el periodo de 2010 = 
+
+
+#TEF
+
+Pob fem total en 2010 = 57,481,307
+Nacimientos totales en 2010 = 2,643,908
+$TGF = \frac {2,643,908}{57,481,307} = 0.04599596$
+
+
+
+
+#INVITACIÓN... La demografía del mercado de trabajo
+#21 abril -16 a 18 hrs
+#Infancias y Mercados de trabajo lecciones de chiapas
+#Empleo Formal antes y post covid #
+https://meet.google.com/wpa-tkzz-yev
