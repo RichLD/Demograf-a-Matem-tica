@@ -1,0 +1,70 @@
+##Tablas de Vida##
+##En el Analisis demografico##
+
+En el analisis demografico ha existido una inquietud desde sus inicios, la cual consiste en conocer la longevidad de la poblaciòn o el estudio del nùmero de años que viven las personas.
+Es importante señalar que la longevidad ha tenido una serie de cambios a traves del tiempo y en las diferentes regiones
+
+Las diferencias en la mortalidad se presentan entre poblacion, en las edades, en el sexo, niveles socioeconomicos, etc...
+
+Estas diferencias pueden ser matizadas a traves de una medida que consiste en conocer cuantos años vive una cohorte nacida en un año n.
+La idea de una tabla de vida es conocer como viven en promedio las personas  hasta que se extingan, con esto se puede obtener el numero de años en promedio que vive la poblacion estudiada.
+Las tablas de vida se proponen como una estimacion de la esperanza de vida, se utilizan tasas de sobrevivencia en edades desplegadas o grupos de edad.
+
+Para la construccion de una tabla de vida (TV) se plantean los siguientes supuestos.
+
+1.- En la poblaciòn estudiada NO HAY MIGRACION
+2.- Las tasas de mortalidad no cambian con el tiempo 
+3.- La poblacion inicial es de 100,000 personas
+Por otro lado, la TV se puede calcular por sexo o por toda la poblacion
+
+La informacion minima para calcular la TV es el numero de defunciones por edad y la poblacion a mitad de año
+
+Construccion de una TV
+Poblacion hipotetica de 100,000 personas en el año t
+1.- Tasas especificas de mortalidad
+frac = di/Pi
+Donde 
+mi = tasa especifica de mortalidad en la edad x
+Dx= defunciones en la edad x
+Px= Poblacion a mitad de año en la edad x
+
+2.- Probabilidad de Muerte
+La prob de muerte se representa a traves de qx y se define como la probabilidad de morir entre edad x y x+1
+qx= dx/(px+1/2dx)
+Donde qx es la prob de morir a la edad x
+dx defunciones a la edad x
+Px pob a mitad de año
+
+Sabemos que 
+mx = dx /px--- dx =mxpx
+qx = mxpx/(px +1/2mxpx)
+qx= mxpx/(2px+mxpx) ---- qx= 2mxpx/2px+mxpx
+
+qx= 2mx/2+mx
+La Ecuacion qx es valida para las edades mayores a  por lo que la prob de morir entre 0 y 1 años es 
+q0 =do/N
+Donde q0 = prob de morir edad 0
+d0 = numero de muertes edad 0
+N= nacidos vivos de la poblacion de estudio
+
+Por otro lado, tambien se considera que las personas mayores a  100 años se mueren todas por lo que se plantea qw=1
+Con base en lo anterior, se puede plantear la probabiloidad de sobrevivenvia como 
+px= 1- qx
+Donde px es la probabilidad de sobrevivencia a edad x
+qx ---Prob de morir edad x
+
+
+Con qx y la poblacion inicial de 100,000 el numero de muertes de la edad x a x+1 se puede conocer mediante otro indicador que es lx y se define como los sobrevivientes a edad x
+ 
+ dx= qxpor lx
+ 
+ Donde
+ dx--defunciones edad x
+ qx--probabilidad de morir edad x
+ lx--Numero de sobrevivientes edad x
+ lx+1 = lx-dx
+ ##
+ Los años personas vividas se definen como aquellos que sobreviven desde la edad 0 hasta la edad x y se plantea como Lx
+ Lx= lx+1+1/2dx
+ 
+ sustituyendo dx 
