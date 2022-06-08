@@ -1,0 +1,290 @@
+install.packages("dplyr")
+require(dplyr)
+install.packages("questionr")
+require(questionr)  
+##basegro es la base de Colima Personas06.CSV
+basegro <- read.csv(file.choose())
+basegro1 <- basegro %>%
+  as_tibble() %>%
+  mutate(gpoedadgro=case_when(EDAD >=0 & EDAD <=9 ~ 1,
+                              EDAD >=10 & EDAD <=19 ~ 2,
+                              EDAD >=20 & EDAD <=29 ~ 3,
+                              EDAD >=30 & EDAD <=39 ~ 4,
+                              EDAD >=40 & EDAD <=49 ~ 5,
+                              EDAD >=50 & EDAD <=59 ~ 6,
+                              EDAD >=60 & EDAD <=69 ~ 7,
+                              EDAD >=70 & EDAD <=74 ~ 8,
+                              EDAD >=75 & EDAD <=110 ~ 9,
+                              EDAD == 999 ~ 10
+  ),
+  sexogro=case_when(SEXO == 1 ~ 1,
+                    SEXO == 3 ~ 2
+  ),
+  conyugro=case_when(SITUA_CONYUGAL == 1 | SITUA_CONYUGAL >=5 & SITUA_CONYUGAL <=7 ~ 1,
+                     SITUA_CONYUGAL >=2 & SITUA_CONYUGAL <=4 ~2,
+                     SITUA_CONYUGAL ==8 ~3,
+                     SITUA_CONYUGAL ==9 ~0
+                     
+  ),
+  nivacgro= case_when(NIVACAD >=0 & NIVACAD <=3 ~ 1,
+                      NIVACAD >=4 & NIVACAD <=8 ~ 2,
+                      NIVACAD >=9 & NIVACAD <=14 ~ 3,
+                      NIVACAD == 99 ~ 0
+  ))%>%
+  select(SITUA_CONYUGAL, conyugro, EDAD, gpoedadgro, SEXO, sexogro, NIVACAD, nivacgro, FACTOR)
+############# basepue es la base de aguascalientes Personas01.CSV
+basepue <- read.csv(file.choose())
+basepue1 <- basepue %>%
+  as_tibble() %>%
+  mutate(gpoedadpue=case_when(EDAD >=0 & EDAD <=9 ~ 1,
+                              EDAD >=10 & EDAD <=19 ~ 2,
+                              EDAD >=20 & EDAD <=29 ~ 3,
+                              EDAD >=30 & EDAD <=39 ~ 4,
+                              EDAD >=40 & EDAD <=49 ~ 5,
+                              EDAD >=50 & EDAD <=59 ~ 6,
+                              EDAD >=60 & EDAD <=69 ~ 7,
+                              EDAD >=70 & EDAD <=74 ~ 8,
+                              EDAD >=75 & EDAD <=110 ~ 9,
+                              EDAD == 999 ~ 10
+  ),
+  sexopue=case_when(SEXO == 1 ~ 1,
+                    SEXO == 3 ~ 2
+  ),
+  conyupue=case_when(SITUA_CONYUGAL == 1 | SITUA_CONYUGAL >=5 & SITUA_CONYUGAL <=7 ~ 1,
+                     SITUA_CONYUGAL >=2 & SITUA_CONYUGAL <=4 ~2,
+                     SITUA_CONYUGAL ==8 ~3,
+                     SITUA_CONYUGAL ==9 ~0
+                     
+  ),
+  nivacpue= case_when(NIVACAD >=0 & NIVACAD <=3 ~ 1,
+                      NIVACAD >=4 & NIVACAD <=8 ~ 2,
+                      NIVACAD >=9 & NIVACAD <=14 ~ 3,
+                      NIVACAD == 99 ~ 0
+  ))%>%
+  select(SITUA_CONYUGAL, conyupue, EDAD, gpoedadpue, SEXO, sexopue, NIVACAD, nivacpue, FACTOR)
+
+table1 <- table(basegro1$gpoedadgro)
+View(table1)
+table(basepue1$gpoedadpue)
+table(basegro1$sexogro)
+table(basepue1$sexopue)
+
+table(basegro1$nivacgro)
+table(basepue1$nivacpue)
+table(basegro1$conyugro)
+table(basepue1$conyupue)
+wtd.table(basegro1$sexogro, weights = basegro1$FACTOR)
+wtd.table(basepue1$sexopue, weights = basepue1$FACTOR)
+
+table(basegro1$sexogro)
+wtd.table(basegro1$sexogro, weights = basegro1$FACTOR)
+table(basegro1$gpoedadgro)
+wtd.table(basegro1$gpoedadgro, weights = basegro1$FACTOR)
+table(basegro1$nivacgro)
+wtd.table(basegro1$nivacgro, weights = basegro1$FACTOR)
+table(basegro1$nivacgro)
+wtd.table(basegro1$nivacgro, weights = basegro1$FACTOR)
+table(basegro1$conyugro)
+wtd.table(basegro1$conyugro, weights = basegro1$FACTOR)
+
+table(basepue1$sexopue)
+wtd.table(basepue1$sexopue, weights = basepue1$FACTOR)
+table(basepue1$gpoedadpue)
+wtd.table(basepue1$gpoedadpue, weights = basepue1$FACTOR)
+table(basepue1$nivacpue)
+wtd.table(basepue1$nivacpue, weights = basepue1$FACTOR)
+table(basepue1$nivacpue)
+wtd.table(basepue1$nivacpue, weights = basepue1$FACTOR)
+table(basepue1$conyupue)
+wtd.table(basepue1$conyupue, weights = basepue1$FACTOR)
+
+#################################################################################
+
+install.packages("dplyr")
+require(dplyr)
+install.packages("questionr")
+require(questionr)  
+
+###
+basegro1 <- read.csv(file.choose())
+basegroviv <- basegro1 %>%
+  as_tibble() %>%
+  mutate(VIV= case_when(CLAVIVP >=1 & CLAVIVP <=3 ~ 1,
+                             CLAVIVP ==4 ~ 2,
+                             CLAVIVP >=5 & CLAVIVP <=9 ~ 3,
+                             CLAVIVP == 99 ~ 4
+  ),
+  TECHO= case_when(TECHOS ==1 ~ 1,
+                   TECHOS >= 2 & TECHOS <=5 ~ 2,
+                   TECHOS == 6 ~ 3,
+                   TECHOS == 7 ~ 4,
+                   TECHOS == 10 ~ 5,
+                   TECHOS == 8 | TECHOS == 9 ~ 6,
+                   TECHOS == 99 ~ 7
+  ),
+  SERVICIOS= case_when(REFRIGERADOR==1 & LAVADORA==3 & AUTOPROP==7 & INTERNET==7 ~ 1,
+                               REFRIGERADOR==2 & LAVADORA==4 & AUTOPROP==8 & INTERNET==8 ~ 2,
+                               REFRIGERADOR==9 & LAVADORA==9 & AUTOPROP==9 & INTERNET==9 ~ 3
+  ),
+  ALIM= case_when(ALIMENTACION==1 ~ 1,
+                       ALIMENTACION==3 ~ 2,
+                       ALIMENTACION==9 ~ 3
+  ),
+  TENEN= case_when(TENENCIA ==1 ~ 1,
+                         TENENCIA ==2 ~ 2,
+                         TENENCIA ==3 ~ 3,
+                         TENENCIA ==4 ~ 4,
+                         TENENCIA ==9 ~ 5
+  )
+  
+  )%>%
+  select(VIV, TECHO, SERVICIOS, ALIM, TENEN, FACTOR)
+ table(basegroviv$VIV)
+
+ wtd.table(basegroviv$VIV, weights = basegroviv$FACTOR)
+
+ table(basegroviv$TECHO)
+
+ wtd.table(basegroviv$TECHO, weights = basegroviv$FACTOR)
+
+ table(basegroviv$SERVICIOS)
+
+ wtd.table(basegroviv$SERVICIOS, weights = basegroviv$FACTOR)
+
+ table(basegroviv$ALIM)
+
+ wtd.table(basegroviv$ALIM, weights = basegroviv$FACTOR)
+
+ table(basegroviv$TENEN)
+
+ wtd.table(basegroviv$TENEN, weights = basegroviv$FACTOR)
+
+###
+basepue1 <- read.csv(file.choose())
+basepueviv <- basepue1 %>%
+  as_tibble() %>%
+mutate(VIV= case_when(CLAVIVP >=1 & CLAVIVP <=3 ~ 1,
+                           CLAVIVP ==4 ~ 2,
+                           CLAVIVP >=5 & CLAVIVP <=9 ~ 3,
+                           CLAVIVP == 99 ~ 4
+),
+TECHO= case_when(TECHOS ==1 ~ 1,
+                 TECHOS >= 2 & TECHOS <=5 ~ 2,
+                 TECHOS == 6 ~ 3,
+                 TECHOS == 7 ~ 4,
+                 TECHOS == 10 ~ 5,
+                 TECHOS == 8 | TECHOS == 9 ~ 6,
+                 TECHOS == 99 ~ 7
+),
+SERVICIOS= case_when(REFRIGERADOR==1 & LAVADORA==3 & AUTOPROP==7 & INTERNET==7 ~ 1,
+                             REFRIGERADOR==2 & LAVADORA==4 & AUTOPROP==8 & INTERNET==8 ~ 2,
+                             REFRIGERADOR==9 & LAVADORA==9 & AUTOPROP==9 & INTERNET==9 ~ 3
+),
+ALIM= case_when(ALIMENTACION==1 ~ 1,
+                     ALIMENTACION==3 ~ 2,
+                     ALIMENTACION==9 ~ 3
+),
+TENEN= case_when(TENENCIA ==1 ~ 1,
+                       TENENCIA ==2 ~ 2,
+                       TENENCIA ==3 ~ 3,
+                       TENENCIA ==4 ~ 4,
+                       TENENCIA ==9 ~ 5
+)
+
+)%>%
+  select(VIV, TECHO, SERVICIOS, ALIM, TENEN, FACTOR)
+table(basepueviv$VIV)
+
+table(basepueviv$VIV)
+
+wtd.table(basepueviv$VIV, weights = basepueviv$FACTOR)
+
+table(basepueviv$TECHO)
+
+wtd.table(basepueviv$TECHO, weights = basepueviv$FACTOR)
+
+table(basepueviv$SERVICIOS)
+
+wtd.table(basepueviv$SERVICIOS, weights = basepueviv$FACTOR)
+
+table(basepueviv$ALIM)
+
+wtd.table(basepueviv$ALIM, weights = basepueviv$FACTOR)
+
+table(basepueviv$TENEN)
+
+wtd.table(basepueviv$TENEN, weights = basepueviv$FACTOR)
+##CRECIMIENTO POBLACIONAL##
+##Ecuación Compensadora##
+
+Tenemos por entendido que la ecuación compensadora se expresa de la siguiente manera para los periodos de tiempo con los que contamos
+$$P_{2000+20}=P_{2000}+N_{2000\rightarrow 2020}-D_{2000 \rightarrow 2020}+I_{2000 \rightarrow 2020}-E_{2000 \rightarrow 2020}$$
+#Ecuación Compensadora Colima#
+
+$$P_{2000+20}=P_{2000}+N_{2000\rightarrow 2020}-D_{2000 \rightarrow 2020}+I_{2000 \rightarrow 2020}-E_{2000 \rightarrow 2020}$$
+$$P_{2020}=542,627+(13,622+12,789+13,102+12,742+13,194+12,716+12,672+13,786+13,505	14,075+14,505+14,990+14,373+14,222+14,387+13,461+13,112+12,925+12,619+12,388+10,316)-(2371+2441+2532+2420+2657+2805+2870+2953+3049+3112+3217+3554+3838+3897+3859+4553+4638+4873+4817+4897+6394)+(139,290+182,943+193,703)-(78,375+93,157+114,254)$$
+Para el estado de Colima el resultado de la ecuación compensadora es el siguiente
+$$P_{2000+20}= 976,531$$
+#Ecuación Compensadora Aguascalientes#
+
+
+$$P_{2020}=944,285+(27,323+30,120	+29,805+28,378+28,395+28,002+27,714+27,888+	28,375+27,509+28,154+28,282+29,159+28,673+28,815+29,346+28,569+27,853+22,682)-(3966+4037+4539+4547+4461+4594+4756+4903+5176+5236+5402+5143+5477+5759+5782+5935+6159+6394+6486+7018+9968)+(187,768+233,073+276,430)-(116,039+136,354+144,612)$$
+Para el estado de Aguascalientes el resultado de la ecuación compensadora es el siguiente
+$$P_{2020}= 1,663,855$$
+
+### Tasa de crecimiento anual
+Ahora la tasa de crecimiento Anual se ve representado matemáticamente de la siguiente manera
+$$TCA=\frac{P_{2020}-P_{2000}}{P_{2000}}$$
+#Tasa de Crecimiento Colima#
+La tasa de crecimiento anual para el estado de colima es 
+
+$$TCA=\frac{P_{2020}-P_{2000}}{P_{2000}}$$
+$$TCA=\frac{731,391-542,627}{542,627}$$
+$$TCA=0.3478706$$
+#Tasa de Crecimiento Aguascalientes#
+La tasa de crecimiento anual para el estado de Aguascalientes es 
+
+
+$$TCA=\frac{1,425,607-944,285}{944,285}$$
+
+$$TCA=0.5097211$$
+##Tasa de Crecimiento Exponencial##
+##INTERPOLACIÓN##
+ La tasa de crecimiento exponencial se puede ver expresado de la siguiente manera 
+ $$ r=\frac{ln\left( \frac{P_{2000+20}}{P_{2000}}\right)}{20}$$
+##Colima##
+ 
+$$r=\frac{ln\left( \frac{976,531}{542,627}\right)}{20}$$
+$$ r= .02937921682$$
+Tenemos que ente 15 de Octubre del año 2013 y el 30 de Junio del 2020 hay una diferencia de 12.79 años
+
+
+$$TCE= P_{t+n} =P_{t}\cdot e^{r\cdot n}$$
+
+
+$$TCE= P_{t+n} =542,627\cdot e^{0.02937921682\cdot 12.79}=790118.0323$$
+
+
+##Aguascalientes
+ 
+ $$\rightarrow r=\frac{ln\left( \frac{1,663,855}{944,285}\right)}{20}=.02832322$$
+ 
+ $$TCE= P_{t+n} =944,285\cdot e^{0.02832322\cdot 12.79}=2,737,958$$
+ 
+##EXTRAPOLACION##
+La extrapolación es hacia el 15 de mayo del 2020 
+#Profe la verdad me confundi al realizar la extrapolación, tuve ciertas dudas al momento de tomar los valores
+#colima#
+$$TCE=P_{t+n} =542,627\cdot e^{0.02937921682\cdot (-21.37)}=289,625$$
+
+##Aguascalientes##
+$$TCE=P_{t+n} =944,285\cdot e^{0.02832322\cdot (-21.37)}=1,394,908.397$$
+
+##FECUNDIDAD###
+#Colima#
+  $$\begin{array}{1} Grupos de edad & Nacimientos totales & mujeres & Nacimientos mujeres & TEF  \\ 15-19 & 1,526 & 29,996 & 749	 & 0.050873450 \\ 20-24 & 2,833 & 29,706 & 1,397 & 0.095367939
+ \\ 25-29 & 2,804	 & 29,451 & 1348 & 0.09520899 \\ 30-34 & 1952 & 29,748 & 939 & 0.065617857 \\ 35-39 & 884 & 27,932 & 437 & 0.015645138 \\ 40-44 & 205 & 26393 & 101 & 0.003826772 \\ \\ & & & & &\\TGF =& 1.732419\\TBR =& 8.662093 \\  \end{array}$$
+ 
+###Aguascalientes##
+$$\begin{array}{1} Grupos de edad & Nacimientos totales & mujeres & Nacimientos mujeres & TEF  \\ 15-19 & 3,456 & 65,064 & 3958 & 0.05311693 \\ 20-24 & 6,264 & 63,866 & 9182 & 0.09792378 \\ 25-29 & 6,094 & 60,285 & 2983 & 0.10108651 \\ 30-34 & 4109 & 55,174 & 2039 & 0.07447348\\ 35-39 & 2047 & 51,483 & 988 & 0.03976070 \\ 40-44 & 542 & 48,539 & 272 & 0.01116628 \\ \\ & & & & &\\TGF =& 1.887638\\TBR =& 9.438192 \\   \end{array}$$
+$$begin{array}{1} GpoEdad & Muertes & Pobmitad & TEM & TEM*100000\\ <1 & 2132 & 12873410 & 0.0006 & 16 \\ 65-69 & 95748 & 5872590 & .0163 & 1630 \\ 70y+ & 157197 & 1735817 & .0905 & 9050 \end{array}$$
